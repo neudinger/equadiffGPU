@@ -1,0 +1,2 @@
+clang++ -O3 -I/opt/nvidia/hpc_sdk/Linux_x86_64/22.2/math_libs/11.6/targets/x86_64-linux/include/ -I$CUDA_PATH/include -L$CUDA_PATH/lib64 -lcudart --cuda-gpu-arch=sm_61 -g -o t140 cuda.cu -std=c++17 && ./t140 > out.txt
+nvcc -g --std=c++17 -arch=compute_61 -code=sm_61 -O3 -o gpu_stencil cuda.cu && ./gpu_stencil 10000 1
